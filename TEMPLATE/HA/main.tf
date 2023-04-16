@@ -46,7 +46,7 @@ resource "aws_autoscaling_group" "asg" {
   }
 }
 
-/*
+
 resource "aws_lb" "loadbalancer" {
   name               = "loadbalancer"
   load_balancer_type = "application"
@@ -84,4 +84,3 @@ resource "aws_lb_listener_rule" "asg-listen" {
     target_group_arn = aws_lb_target_group.asg-tg.arn
   }
 }
-*/
