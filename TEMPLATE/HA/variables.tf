@@ -18,16 +18,18 @@ variable "sg_id" {
 }
 
 
-/*
 variable "vpc_id" {
-  description = "ID of VPC to attach Security Group to"
+  description = "ID of VPC for Target Group"
   type        = string
 }
 
 
+/*
 variable "subnet_ids" {
   description = "AMI number"
-  type        = list(string)
+  type        = string
+}
+
 
 }
 variable "ec2_type" {

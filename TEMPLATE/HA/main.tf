@@ -12,6 +12,22 @@ resource "aws_launch_template" "ha" {
   }
 }
 
+resource "aws_lb_target_group" "asg-tg" {
+  name     = "${var.prefix}-tg"
+  port     = 80
+  protocol = "HTTP"
+  vpc_id   = var.vpc_id
+  health_check {
+    path                = "/"
+    protocol            = "HTTP"
+    matcher             = "200"
+    interval            = 15
+    timeout             = 3
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
+  }
+}
+
 /*
 resource "aws_autoscaling_group" "asg" {
   vpc_zone_identifier = var.subnet_ids
@@ -29,6 +45,7 @@ resource "aws_autoscaling_group" "asg" {
     propagate_at_launch = true
   }
 }
+
 
 resource "aws_lb" "loadbalancer" {
   name               = "loadbalancer"
@@ -51,21 +68,7 @@ resource "aws_lb_listener" "http" {
   }
 }
 
-resource "aws_lb_target_group" "asg-tg" {
-  name     = "asg-tg"
-  port     = 80
-  protocol = "HTTP"
-  vpc_id   = var.vpc_id
-  health_check {
-    path                = "/"
-    protocol            = "HTTP"
-    matcher             = "200"
-    interval            = 15
-    timeout             = 3
-    healthy_threshold   = 2
-    unhealthy_threshold = 2
-  }
-}
+
 
 resource "aws_lb_listener_rule" "asg-listen" {
   listener_arn = aws_lb_listener.http.arn
