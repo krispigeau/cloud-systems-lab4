@@ -13,14 +13,13 @@ module "vpc" {
 }
 
 
-/*
 module "sg" {
   source = "../TEMPLATE/SG"
   prefix = "Blue"
   vpc_id = module.vpc.output_vpc_id
 }
 
-
+/*
 module "ha" {
   source = "../TEMPLATE/HA"
 /*  
