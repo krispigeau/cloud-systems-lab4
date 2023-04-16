@@ -28,7 +28,7 @@ resource "aws_lb_target_group" "asg-tg" {
   }
 }
 
-/*
+
 resource "aws_autoscaling_group" "asg" {
   vpc_zone_identifier = var.subnet_ids
   target_group_arns    = [aws_lb_target_group.asg-tg.arn]
@@ -46,7 +46,7 @@ resource "aws_autoscaling_group" "asg" {
   }
 }
 
-
+/*
 resource "aws_lb" "loadbalancer" {
   name               = "loadbalancer"
   load_balancer_type = "application"

@@ -24,13 +24,13 @@ variable "vpc_id" {
 }
 
 
-/*
+
 variable "subnet_ids" {
   description = "AMI number"
-  type        = string
+  type        = list
 }
 
-
+/*
 }
 variable "ec2_type" {
   description = "EC2 instance type"

@@ -26,7 +26,7 @@ module "ha" {
   ami = "ami-0df15f4f7ee3c3243"
   sg_id = module.sg.output_sg_id
   vpc_id = module.vpc.output_vpc_id
-#  subnet_ids = module.vpc.output_sub_ids
+  subnet_ids = module.vpc.output_sub_ids
 }
 
 
