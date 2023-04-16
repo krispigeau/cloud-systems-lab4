@@ -24,7 +24,6 @@ variable "vpc_id" {
 }
 
 
-
 variable "subnet_ids" {
   description = "AMI number"
   type        = list

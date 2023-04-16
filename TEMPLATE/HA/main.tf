@@ -1,4 +1,3 @@
-
 resource "aws_launch_template" "ha" {
   name                   = "${var.prefix}-template"
   image_id               = var.ami
@@ -10,7 +9,9 @@ resource "aws_launch_template" "ha" {
       Name = "${var.prefix}-lt"
     }
   }
+  user_data = filebase64("${path.module}/example.sh")
 }
+
 
 resource "aws_lb_target_group" "asg-tg" {
   name     = "${var.prefix}-tg"
@@ -29,12 +30,14 @@ resource "aws_lb_target_group" "asg-tg" {
 }
 
 
+
 resource "aws_autoscaling_group" "asg" {
   vpc_zone_identifier = var.subnet_ids
   target_group_arns    = [aws_lb_target_group.asg-tg.arn]
   health_check_type = "ELB"
   min_size          = 2
   max_size          = 4
+  desired_capacity          = 4
   launch_template {
     id      = aws_launch_template.ha.id
     version = "$Latest"
