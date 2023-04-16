@@ -1,4 +1,4 @@
-/*
+
 resource "aws_launch_template" "ha" {
   name                   = "${var.prefix}-template"
   image_id               = var.ami
@@ -12,7 +12,7 @@ resource "aws_launch_template" "ha" {
   }
 }
 
-
+/*
 resource "aws_autoscaling_group" "asg" {
   vpc_zone_identifier = var.subnet_ids
   target_group_arns    = [aws_lb_target_group.asg-tg.arn]

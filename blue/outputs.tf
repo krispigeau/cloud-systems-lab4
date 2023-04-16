@@ -1,3 +1,5 @@
+# Blue module outputso
+
 output "blue_output_vpc_id" {
   value = module.vpc.output_vpc_id
 }

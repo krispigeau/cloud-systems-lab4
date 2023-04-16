@@ -5,7 +5,6 @@ module "VPC-blue" {
   source = "./blue"
 }
 
-
 module "VPC-green" {
   source = "./green"
 }

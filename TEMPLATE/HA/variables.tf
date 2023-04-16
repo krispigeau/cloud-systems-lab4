@@ -1,18 +1,7 @@
 # Modules Input Variables to Make Security Groups
 
-/*
+
 variable "prefix" {
-  description = "Identifier used for Name tags"
-  type        = string
-}
-
-variable "vpc_id" {
-  description = "ID of VPC to attach Security Group to"
-  type        = string
-}
-
-
-variable "sg_id" {
   description = "Identifier used for Name tags"
   type        = string
 }
@@ -22,6 +11,19 @@ variable "ami" {
   type        = string
 
 }
+
+variable "sg_id" {
+  description = "Identifier used for Name tags"
+  type        = string
+}
+
+
+/*
+variable "vpc_id" {
+  description = "ID of VPC to attach Security Group to"
+  type        = string
+}
+
 
 variable "subnet_ids" {
   description = "AMI number"
