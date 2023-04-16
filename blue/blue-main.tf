@@ -13,17 +13,20 @@ module "vpc" {
 }
 
 
+/*
 module "sg" {
   source = "../TEMPLATE/SG"
   prefix = "Blue"
   vpc_id = module.vpc.output_vpc_id
 }
 
-/*
+
 module "ha" {
-  source = "../TEMPLATE/SG"
+  source = "../TEMPLATE/HA"
+/*  
   prefix = "Blue"
   sg_id = module.sg.output_sg_id
   ami = "ami-0df15f4f7ee3c3243"
+  vpc_id = module.vpc.output_sub_ids
 }
 */

@@ -1,8 +1,9 @@
+/*
 resource "aws_launch_template" "ha" {
   name                   = "${var.prefix}-template"
-  image_id               = "ami-0ed9277fb7eb570c9"
+  image_id               = var.ami
   instance_type          = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.allow-SSH-HTTP.id]
+  vpc_security_group_ids = [var.sg_id]
   tag_specifications {
     resource_type = "instance"
     tags = {
@@ -13,13 +14,13 @@ resource "aws_launch_template" "ha" {
 
 
 resource "aws_autoscaling_group" "asg" {
-  vpc_zone_identifier = data.aws_subnets.default.ids
+  vpc_zone_identifier = var.subnet_ids
   target_group_arns    = [aws_lb_target_group.asg-tg.arn]
   health_check_type = "ELB"
   min_size          = 2
   max_size          = 4
   launch_template {
-    id      = aws_launch_template.ec2cluster.id
+    id      = aws_launch_template.ha.id
     version = "$Latest"
   }
   tag {
@@ -32,8 +33,8 @@ resource "aws_autoscaling_group" "asg" {
 resource "aws_lb" "loadbalancer" {
   name               = "loadbalancer"
   load_balancer_type = "application"
-  subnets            = data.aws_subnets.default.ids
-  security_groups    = [aws_security_group.allow-SSH-HTTP.id]
+  subnets            = var.subnet_ids
+  security_groups    = [var.sg_id]
 }
 
 resource "aws_lb_listener" "http" {
@@ -54,7 +55,7 @@ resource "aws_lb_target_group" "asg-tg" {
   name     = "asg-tg"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = data.aws_vpc.default.id
+  vpc_id   = var.vpc_id
   health_check {
     path                = "/"
     protocol            = "HTTP"
@@ -80,3 +81,4 @@ resource "aws_lb_listener_rule" "asg-listen" {
     target_group_arn = aws_lb_target_group.asg-tg.arn
   }
 }
+*/

@@ -12,8 +12,10 @@ module "vpc" {
   #  ec2_name     = "VM"
 }
 
+/*
 module "sg" {
   source = "../TEMPLATE/SG"
   prefix = "Green"
   vpc_id = module.vpc.output_vpc_id
 }
+*/

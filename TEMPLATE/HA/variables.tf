@@ -1,5 +1,6 @@
 # Modules Input Variables to Make Security Groups
 
+/*
 variable "prefix" {
   description = "Identifier used for Name tags"
   type        = string
@@ -22,7 +23,11 @@ variable "ami" {
 
 }
 
-/*
+variable "subnet_ids" {
+  description = "AMI number"
+  type        = list(string)
+
+}
 variable "ec2_type" {
   description = "EC2 instance type"
   type        = string
