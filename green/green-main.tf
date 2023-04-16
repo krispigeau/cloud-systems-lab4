@@ -1,7 +1,7 @@
 # Main file for Green VPC
 
 module "vpc" {
-  source      = "../VPC-TEMPLATE"
+  source      = "../TEMPLATE/VPC"
   prefix      = "Green"
   cidr_block  = "192.168.0.0/16"
   public_cidr = ["192.168.1.0/24", "192.168.2.0/24", "192.168.3.0/24"]
@@ -13,7 +13,7 @@ module "vpc" {
 }
 
 module "sg" {
-  source = "../SG-TEMPLATE"
+  source = "../TEMPLATE/SG"
   prefix = "Green"
   vpc_id = module.vpc.output_vpc_id
 }

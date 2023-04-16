@@ -1,7 +1,7 @@
 # Main file for Blue VPC
 
 module "vpc" {
-  source      = "../VPC-TEMPLATE"
+  source      = "../TEMPLATE/VPC"
   prefix      = "Blue"
   cidr_block  = "100.64.0.0/16"
   public_cidr = ["100.64.1.0/24", "100.64.2.0/24", "100.64.3.0/24"]
@@ -14,7 +14,16 @@ module "vpc" {
 
 
 module "sg" {
-  source = "../SG-TEMPLATE"
+  source = "../TEMPLATE/SG"
   prefix = "Blue"
   vpc_id = module.vpc.output_vpc_id
 }
+
+/*
+module "ha" {
+  source = "../TEMPLATE/SG"
+  prefix = "Blue"
+  sg_id = module.sg.output_sg_id
+  ami = "ami-0df15f4f7ee3c3243"
+}
+*/
