@@ -1,4 +1,4 @@
-# Modules Input Variables to Make Security Groups
+# Module Input Variables to Make Security Groups
 
 variable "prefix" {
   description = "Identifier used for Name tags"
@@ -6,6 +6,6 @@ variable "prefix" {
 }
 
 variable "vpc_id" {
-  description = "Identifier used for Name tags"
+  description = "The ID of the VPC where this SG will be created"
   type        = string
 }

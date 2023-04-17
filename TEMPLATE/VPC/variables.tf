@@ -1,4 +1,4 @@
-# Modules Input Variables to Make VPCs 
+# Module Input Variables to Make VPCs 
 
 variable "prefix" {
   description = "Identifier used for Name tags"
@@ -20,24 +20,3 @@ variable "az_pub" {
   description = "availability zone"
   type        = list(string)
 }
-
-/*
-variable "ami" {
-  description = "AMI number"
-  type        = string
-
-}
-variable "ec2_type" {
-  description = "EC2 instance type"
-  type        = string
-}
-
-variable "key" {
-  description = "Key PEM file name"
-  type        = string
-}
-variable "ec2_name" {
-  description = "The name of the EC2"
-  type        = string
-}
-*/

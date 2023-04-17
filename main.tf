@@ -5,11 +5,11 @@ module "VPC-blue" {
   source = "./blue"
 }
 
-/*
+
 module "VPC-green" {
   source = "./green"
 }
-*/
+
 
 # Outputs carried to root/main.tf ut
 # So I can see them in the terminal output

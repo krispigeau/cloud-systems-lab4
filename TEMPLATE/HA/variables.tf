@@ -26,12 +26,11 @@ variable "vpc_id" {
 
 variable "subnet_ids" {
   description = "AMI number"
-  type        = list
+  type        = list(any)
 }
 
-/*
-}
-variable "ec2_type" {
+
+variable "instance_type" {
   description = "EC2 instance type"
   type        = string
 }
@@ -40,6 +39,8 @@ variable "key" {
   description = "Key PEM file name"
   type        = string
 }
+
+/*
 variable "ec2_name" {
   description = "The name of the EC2"
   type        = string
