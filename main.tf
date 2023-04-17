@@ -10,35 +10,21 @@ module "VPC-green" {
   source = "./green"
 }
 
+# Print message 
 
-# Outputs carried to root/main.tf ut
-# So I can see them in the terminal output
-
-# VPC-blue outputs
-output "blue_vpc_id" {
-  value = module.VPC-blue.blue_output_vpc_id
+output "Complete" {
+  value       = "Congratulations Lab is complete here are the links"
 }
 
+# Outputs carried to root/main.tf level
+# So they can be printed in the terminal output
 
-output "blue_output_sub_ids" {
-  value = module.VPC-blue.blue_output_sub_ids
+output "blue_alb_dns_name" {
+  value       = "http://${module.VPC-blue.blue_alb_dns_name}"
+  description = "DNS name of the blue load balancer"
 }
 
-
-output "blue_output_sg_id" {
-  value = module.VPC-blue.blue_output_sg_id
+output "green_alb_dns_name" {
+  value       = "http://${module.VPC-green.green_alb_dns_name}"
+  description = "DNS name of the green load balancer"
 }
-
-/*
-
-# VPC-green outputs
-output "green_vpc_id" {
-  value = module.VPC-green.green_output_vpc_id
-}
-
-
-output "green_output_sub_ids" {
-  value = module.VPC-green.green_output_sub_ids
-}
-
-*/
