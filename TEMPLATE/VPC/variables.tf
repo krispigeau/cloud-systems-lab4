@@ -1,5 +1,6 @@
 # Module Input Variables to Make VPCs 
 
+
 variable "prefix" {
   description = "Identifier used for Name tags"
   type        = string
@@ -17,6 +18,6 @@ variable "public_cidr" {
 }
 
 variable "az_pub" {
-  description = "availability zone"
+  description = "availability zones to use for pubic subnets"
   type        = list(string)
 }
