@@ -13,7 +13,7 @@ module "VPC-green" {
 # Print message 
 
 output "Complete" {
-  value       = "Congratulations Lab is complete here are the links"
+  value = "Congratulations Lab is complete here are the links"
 }
 
 # Outputs carried to root/main.tf level
