@@ -7,13 +7,24 @@ variable "prefix" {
 }
 
 variable "ami" {
-  description = "AMI number"
+  description = "AMI number of image to use for launch template"
   type        = string
 
 }
 
+
+variable "instance_type" {
+  description = "EC2 instance type for launch template"
+  type        = string
+}
+
 variable "sg_id" {
-  description = "Identifier used for Name tags"
+  description = "Securit groups to use for launch template"
+  type        = string
+}
+
+variable "key" {
+  description = "Key PEM file name for launch template"
   type        = string
 }
 
@@ -25,24 +36,6 @@ variable "vpc_id" {
 
 
 variable "subnet_ids" {
-  description = "AMI number"
+  description = "subnets for auto-scalling group and load balancer"
   type        = list(any)
 }
-
-
-variable "instance_type" {
-  description = "EC2 instance type"
-  type        = string
-}
-
-variable "key" {
-  description = "Key PEM file name"
-  type        = string
-}
-
-/*
-variable "ec2_name" {
-  description = "The name of the EC2"
-  type        = string
-}
-*/
