@@ -1,4 +1,4 @@
-# Modules Input Variables to Make Security Groups
+# Modules Input Variables for HA Modules
 
 
 variable "prefix" {
@@ -11,7 +11,6 @@ variable "ami" {
   type        = string
 
 }
-
 
 variable "instance_type" {
   description = "EC2 instance type for launch template"
